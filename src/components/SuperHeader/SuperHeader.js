@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components/macro';
+import { QUERIES } from '../../constants';
 
 import { COLORS } from '../../constants';
 
@@ -32,11 +33,19 @@ const Wrapper = styled.div`
   height: 40px;
   padding-left: 32px;
   padding-right: 32px;
+
+  @media ${QUERIES.tabletAndDown} {
+    height: 4px;
+  }
 `;
 
 const MarketingMessage = styled.span`
   color: ${COLORS.white};
   margin-right: auto;
+
+  @media ${QUERIES.tabletAndDown} {
+    display: none;
+  }
 `;
 
 const HelpLink = styled.a`
@@ -46,6 +55,10 @@ const HelpLink = styled.a`
 
   &:not(:focus-visible) {
     outline: none;
+  }
+
+  @media ${QUERIES.tabletAndDown} {
+    display: none;
   }
 `;
 

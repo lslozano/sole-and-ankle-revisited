@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components/macro';
+import { QUERIES } from '../../constants';
 
 import { COLORS } from '../../constants';
 
@@ -18,6 +19,10 @@ const SearchInput = ({ label, ...delegated }) => {
 
 const Label = styled.label`
   position: relative;
+
+  @media ${QUERIES.tabletAndDown} {
+    display: none;
+  }
 `;
 
 const Input = styled.input`
