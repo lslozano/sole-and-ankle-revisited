@@ -15,6 +15,9 @@ const Header = () => {
   //
   // <button onClick={() => setShowMobileMenu(true)}>
 
+  const handleOpenMenu = () => setShowMobileMenu(true);
+  const handleCloseMenu = () => setShowMobileMenu(false);
+
   return (
     <header>
       <SuperHeader />
@@ -32,16 +35,15 @@ const Header = () => {
         </Nav>
         <Side />
         <IconsWrapper>
-          <Icon id="shopping-bag"/>
-          <Icon id="search"/>
-          <Icon id="menu"/>
+          <Icon id="shopping-bag" />
+          <Icon id="search" />
+          <MenuButton onClick={handleOpenMenu}>
+            <Icon id="menu" />
+          </MenuButton>
         </IconsWrapper>
       </MainHeader>
 
-      <MobileMenu
-        isOpen={showMobileMenu}
-        onDismiss={() => setShowMobileMenu(false)}
-      />
+      <MobileMenu isOpen={showMobileMenu} onDismiss={handleCloseMenu} />
     </header>
   );
 };
@@ -95,6 +97,12 @@ const IconsWrapper = styled.div`
   @media ${QUERIES.phoneAndDown} {
     gap: 20px;
   }
-`
+`;
+
+const MenuButton = styled.button`
+  border: none;
+  padding: 0;
+  background-color: ${COLORS.white};
+`;
 
 export default Header;
